@@ -2,7 +2,7 @@ resource "aws_vpc" "utc-vpc" {
   cidr_block           = "172.120.0.0/16"
   enable_dns_hostnames = true
   enable_dns_support   = true
-  instance_tenancy = "default"
+  instance_tenancy     = "default"
   tags = {
     Name       = "utc-Vpc"
     env        = "Dev"
@@ -20,9 +20,9 @@ resource "aws_internet_gateway" "utc-igW" {
 }
 
 resource "aws_subnet" "public1" {
-  vpc_id            = aws_vpc.utc-vpc.id
-  cidr_block        = "172.120.1.0/24"
-  availability_zone = "us-east-1a"
+  vpc_id                  = aws_vpc.utc-vpc.id
+  cidr_block              = "172.120.1.0/24"
+  availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
   tags = {
     Name = "utc-public-sub1"
@@ -30,9 +30,9 @@ resource "aws_subnet" "public1" {
 }
 
 resource "aws_subnet" "public2" {
-  vpc_id            = aws_vpc.utc-vpc.id
-  cidr_block        = "172.120.2.0/24"
-  availability_zone = "us-east-1b"
+  vpc_id                  = aws_vpc.utc-vpc.id
+  cidr_block              = "172.120.2.0/24"
+  availability_zone       = "us-east-1b"
   map_public_ip_on_launch = true
   tags = {
     Name = "utc-public-sub2"
